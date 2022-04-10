@@ -8,7 +8,7 @@ re = [-1]*num
 stack = [0]
 
 for i in range(1,num):
-    while counter[n[i]] > counter[n[stack[-1]]]:
+    while stack and counter[n[i]] > counter[n[stack[-1]]]:
         re[stack.pop()] = n[i]
     stack.append(i)
-print(re)
+print(*re)
