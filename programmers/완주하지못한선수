@@ -1,0 +1,11 @@
+# from collections import Counter
+# def solution(participant, completion):
+#     return (list((Counter(participant) - Counter(completion)).keys()))[0]
+
+def solution(participant, completion):
+    state = {}
+    for i in participant:
+        state[i] = state.get(i,0) + 1
+    for i in completion:
+        state[i] -= 1
+    return [k for k,v in state.items() if v > 0][0]
